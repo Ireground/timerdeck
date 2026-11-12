@@ -11,6 +11,9 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: timerdeck
     steps:
       - uses: actions/checkout@v4
 
@@ -34,5 +37,5 @@ jobs:
         with:
           tag_name: build-${{ github.run_number }}
           name: Timerdeck build ${{ github.run_number }}
-          files: Timerdeck.apk
+          files: timerdeck/Timerdeck.apk
           make_latest: true
